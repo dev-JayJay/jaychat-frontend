@@ -3,6 +3,7 @@ import CustomHooks from "./hooks";
 
 const Login = () => {
     const { error, loading, SendRequest } = CustomHooks();
+    const [message, setMessage] = useState('');
     const [formData, setFormData] = useState({
         username:"",
         password:"",
@@ -18,13 +19,17 @@ const Login = () => {
         e.preventDefault();
         try {
             SendRequest({endpoint: '/auth/login', method: 'POST', body: formData});
-            
+            setMessage('Login Successfull')
         } catch (err) {
-
+            console.log("Error occured while sending data to Login endpoint",err);
+            setMessage("Error occured while sending data to Login endpoint");
         }
     }
     return(
         <div className="w-[40%] mx-auto my-11 border">
+            <div>{loading && <p>loading please wait</p>}</div>
+            <p>{message}</p>
+            <div>{error && <p>{error}</p>}</div>
             <h4 className="text-center text-3xl font-semibold text-blue-600">Login Jaychat</h4>
             <div className="flex flex-col w-[80%] mx-auto">
                 <lable>Email/Username</lable>

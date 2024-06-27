@@ -5,7 +5,7 @@ import CustomHooks from "./hooks"
 const Register = () => {
 
     const { error, loading, SendRequest } = CustomHooks();
-    const [message, setMessage] = useState();
+    const [message, setMessage] = useState('');
     const [formData, setFormData] = useState({
         firstname : "",
         lastname : "",

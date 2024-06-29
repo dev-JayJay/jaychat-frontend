@@ -115,7 +115,7 @@ const Register = () => {
                 className="w-full h-full border border-black rounded-lg px-3" />
             </div>
         </div>
-        <div className="w-[35%] mx-[10%] px-5">
+        <div className="w-[50%] mx-[10%] px-5">
             <button onClick={handleSubmit} className="rounded-lg my-3 text-center text-[20px] px-6 py-2 font-semibold text-white bg-blue-600">Sign Up</button>
         </div>
     </div>

@@ -15,11 +15,11 @@ const Login = () => {
             [name] : value,
         }));
     }
-    const handelSubmit = (e) => {
+    const handelSubmit = async (e) => {
         e.preventDefault();
         try {
-            SendRequest({endpoint: '/auth/login', method: 'POST', body: formData});
-            setMessage('Login Successfull')
+            await SendRequest({endpoint: '/auth/login', method: 'POST', body: formData});
+            setMessage('Login Successfull');
         } catch (err) {
             console.log("Error occured while sending data to Login endpoint",err);
             setMessage("Error occured while sending data to Login endpoint");
@@ -55,7 +55,7 @@ const Login = () => {
                     className="w-full h-full border border-black rounded-lg px-3" />
                 </div>
             </div>
-            <div className="w-[10%] mx-[10%] px-5">
+            <div className="w-[50%] mx-[10%] px-5">
                 <button onClick={handelSubmit} className="rounded-lg my-3 text-center text-[20px] px-6 py-2 font-semibold text-white bg-blue-600">Sign In</button>
             </div>
         </div>

@@ -29,12 +29,9 @@ const CustomHooks = () => {
             }
 
             const result = await response.json();
-            // Save the token in localStorage
-            localStorage.setItem('token', result.token);
-            console.log(token);
-            // pass data
             setData(result);
-            console.log(result);
+            console.log('Response from hooks:', result);
+            return result;
             
         } catch (error) {
             setError(error.message || 'Something went wrong!');

@@ -18,8 +18,12 @@ const Login = () => {
     const handelSubmit = async (e) => {
         e.preventDefault();
         try {
-            await SendRequest({endpoint: '/auth/login', method: 'POST', body: formData});
-            setMessage('Login Successfull');
+            const response = await SendRequest({endpoint: '/auth/login', method: 'POST', body: formData});
+            if (response.token) {
+                console.log('response.token', response.token);
+                localStorage.setItem('token', response.token);
+                setMessage('Login Successful');
+            }
         } catch (err) {
             console.log("Error occured while sending data to Login endpoint",err);
             setMessage("Error occured while sending data to Login endpoint");

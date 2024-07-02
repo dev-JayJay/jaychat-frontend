@@ -22,6 +22,9 @@ const Chat = () => {
     }
   }, [data]);
 
+  const handleChatUser = (username) => {
+    console.log('Selected user userId:', username);
+  }
 
   return (
     <div className="min-h-screen flex justify-center items-center bg-gray-100">
@@ -37,8 +40,10 @@ const Chat = () => {
             <div>
               {
                 allUsers.length > 0 ? (
-                  allUsers.map((user, index) => (
-                    <Cards key={index} name={user.username} message={user.email} number={user.firstname} />
+                  allUsers.map((user) => (
+                    <div key={user._id}>
+                      <Cards onClick={handleChatUser} name={user.username} message={user.email} number={user.firstname} />
+                    </div>
                   ))
                 ) : (
                   <p>No User Found</p>

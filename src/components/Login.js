@@ -22,6 +22,7 @@ const Login = () => {
             if (response.token) {
                 console.log('response.token', response.token);
                 localStorage.setItem('token', response.token);
+                localStorage.setItem('userId', response.userId);
                 setMessage('Login Successful');
             }
         } catch (err) {

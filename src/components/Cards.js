@@ -1,9 +1,9 @@
 import React from "react";;
 
 
-const Cards = ({ onClick, name, message, number }) => {
+const Cards = ({ onClick, name, message, number, id }) => {
     return(
-        <div onClick={() => onClick(name)}>
+        <div onClick={() => onClick(name,id)}>
             <div className="w-full flex flex-row border gap-4 px-3 py-3 my-2 rounded-xl">
                 {/* image */}
                 <div className="w-[50px] h-[50px] rounded-full border border-white"></div>

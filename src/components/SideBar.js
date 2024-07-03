@@ -14,6 +14,7 @@ const SideBar = () => {
         try {
             await SendRequest({endpoint: '/logout', method: 'POST'});
             localStorage.removeItem('token');
+            localStorage.removeItem('userId');
             console.log('logout');
         } catch (err) {
             console.log('error logging out', err);

@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import CustomHooks from "./hooks";
+import { InputLableTag } from "./Atoms";
 
 const Login = () => {
     const { error, loading, SendRequest } = CustomHooks();
@@ -31,12 +32,12 @@ const Login = () => {
         }
     }
     return(
-        <div className="w-[40%] mx-auto my-11 border">
+        <div className="w-[90%] mx-auto my-8">
             <div>{loading && <p>loading please wait</p>}</div>
             <p>{message}</p>
             <div>{error && <p>{error}</p>}</div>
-            <h4 className="text-center text-3xl font-semibold text-blue-600">Login Jaychat</h4>
-            <div className="flex flex-col w-[80%] mx-auto">
+            <h4 className="text-2xl font-semibold text-blue-600 mb-4">Login ChatConnect</h4>
+            <div className="flex flex-col mb-4">
                 <lable>Email/Username</lable>
                 <div className="w-[80%] h-9 rounded-lg border border-black">
                     <input 
@@ -48,7 +49,10 @@ const Login = () => {
                     className="w-full h-full border border-black rounded-lg px-3" />
                 </div>
             </div>
-            <div className="flex flex-col w-[80%] mx-auto">
+            <div className="w-[80%] h-9 rounded-lg border border-black">
+                <InputLableTag type='text' lable='check' />
+            </div>
+            <div className="flex flex-col">
                 <lable>Password</lable>
                 <div className="w-[80%] h-9 rounded-lg border border-black">
                     <input 
@@ -60,9 +64,11 @@ const Login = () => {
                     className="w-full h-full border border-black rounded-lg px-3" />
                 </div>
             </div>
-            <div className="w-[50%] mx-[10%] px-5">
+            <a className='text-blue-500 font-semibold' href='#'>forgotten password?</a>
+            <div className="w-[50%]">
                 <button onClick={handelSubmit} className="rounded-lg my-3 text-center text-[20px] px-6 py-2 font-semibold text-white bg-blue-600">Sign In</button>
             </div>
+            <p className='text-blue-500 font-semibold'> <a href='#'>don't have an account? Sign Up</a></p>
         </div>
     );
 }
